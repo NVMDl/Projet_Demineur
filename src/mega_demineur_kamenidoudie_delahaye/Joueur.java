@@ -33,11 +33,18 @@ public class Joueur {
         NbreKitDeminages--;
         return true;
     }
-    boolean PerdreVie (int HP){
+    boolean PerdreVie (){
         if(HP==0){
             return false;
         }
         HP--;
+        return true;
+    }
+    boolean utiliserDrapeau(){
+        if(NbreDrapeau==0){
+            return false;
+        }
+        NbreDrapeau--;
         return true;
     }
 }

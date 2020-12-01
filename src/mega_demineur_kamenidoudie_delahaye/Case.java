@@ -16,11 +16,20 @@ public class Case {
     boolean KitDeminages;
     int BombNumber;
     
-Boolean placerDrapeau(){
+    Boolean placerDrapeau(){
         if(Drapeau){
             return false;
         }
         Drapeau = true;
+        return true;
+    }
+
+
+    Boolean placerKitDeminages(){
+        if(KitDeminages){
+            return false;
+        }
+        KitDeminages = true;
         return true;
     }
     
@@ -37,14 +46,54 @@ Boolean placerDrapeau(){
     }
     
     Boolean activerBomb(){
-        if(Case.Choisir_Case()==Bomb){
-            Joueur.PerdreVie();// creer une autre classe
+        if(Bomb){
+           
             Bomb = false;
-            System.out.println("Vous perdez une vie");
+            System.out.println("Une bombe a été activée");
             return true;
         }
         return false;
     }
     
+    Boolean presenceKitDeminages(){
+        return KitDeminages;
+    }
     
+    Boolean recupererKitDeminages(){
+        if(presenceKitDeminages()){
+            KitDeminages = false;
+            return true;
+        }
+        return false;
+    }
+       Boolean presenceDrapeau(){
+        return Drapeau;
+    }
+    
+    Boolean recupererDrapeau(){
+        if(presenceDrapeau()){
+            Drapeau = false;
+            return true;
+        }
+        return false;
+    }
+    
+     Boolean activerKitDeminages(){
+        if(KitDeminages){
+           
+            KitDeminages = false;
+            System.out.println("Un kit de déminages a été activé");
+            return true;
+        }
+        return false;
+    }
+     
+    int NbreBombAutour(){
+        if (!Bomb){
+            return BombNumber;
+        }
+        return 0;
+    }
+    
+     
 }

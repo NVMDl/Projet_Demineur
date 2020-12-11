@@ -37,12 +37,10 @@ public class Grille {
     boolean etreGagnantePourJoueur(Joueur un_joueur) {
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-                if (TabCase[i][j] != null && Joueur.HP > 0;
-                 && TabCase[i][j + 1] != null && Joueur.HP > 0;
-                 && TabCase[i][j + 2] != null && Case[i][j + 2].lireCouleurDuJeton().equals(un_joueur.Couleur)
-                        && TabCase[i][j + 3] != null && Case[i][j + 3].lireCouleurDuJeton().equals(un_joueur.Couleur)
-                
-                    ) {
+                if (TabCase[i][j] != null && Joueur.HP > 0
+                 && TabCase[i][j + 1] != null && Joueur.HP > 0
+                 && TabCase[i][j + 2] != null && Joueur.HP > 0
+                        && TabCase[i][j + 3] != null && Joueur.HP > 0) {
                     return true;
                 }
 
@@ -118,7 +116,7 @@ public class Grille {
         if (i >= 0 && i < 20) {
             TabCase[ligne][colonne].activerBomb();
         }
-        return true;// je sais pas
+        return true;// je ne sais pas
     }
 
     Boolean placerDrapeau(int ligne, int colonne) {
@@ -150,8 +148,9 @@ public class Grille {
     return false;
     }
 
-    int NbreBombAutour(){
-        for (int i=0;i<20;i++){
+    int NbreBombAutour(int i, int j){
+         return TabCase[i][j].NbreBombAutour();
+        /*for (int i=0;i<20;i++){
             for (int j=0;j<20;j++){
                 //TabCase[i][j].NbreBombAutour()++;
               if (TabCase[i][j].presenceBomb()==true){
@@ -159,6 +158,6 @@ public class Grille {
                   System.out.println(BombNumber++)   ;//A revoir car bombnumber pas sure
               }  
             }
-        }
+        }*/
     }
 }

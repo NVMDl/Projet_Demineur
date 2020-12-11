@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Grille {
 
-    Case TabCase[][] = new Case[15][25];
+    Case TabCase[][] = new Case[20][20];
 
     Grille() {
         for (int i = 0; i < 20; i++) {

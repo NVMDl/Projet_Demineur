@@ -10,5 +10,7 @@ package mega_demineur_kamenidoudie_delahaye;
  * @author delah
  */
 public class Partie {
+    Joueur Joueur;
+    Grille GrilleJeu= new Grille();
     
 }

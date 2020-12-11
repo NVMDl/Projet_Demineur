@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Grille {
 
     Case TabCase[][] = new Case[20][20];
+    //int NombreTtBomb;
 
     Grille() {
         for (int i = 0; i < 20; i++) {
@@ -98,7 +99,7 @@ public class Grille {
         }
     }
 
-    void activer_Bomb(int colonne, int ligne) { // boolean
+    boolean activer_Bomb(int colonne, int ligne) { // boolean
         int i = 20;
         int j = 20;
         while (TabCase[ligne][colonne].activerBomb()== false) {
@@ -117,7 +118,7 @@ public class Grille {
         if (i >= 0 && i < 20) {
             TabCase[ligne][colonne].activerBomb();
         }
-
+        return true;// je sais pas
     }
 
     Boolean placerDrapeau(int ligne, int colonne) {
@@ -142,17 +143,22 @@ public class Grille {
         return false;
     }
     
-    /*boolean recupereKit(int ligne, int colonne){
-        
+    boolean recupereKit(int ligne, int colonne){
+    if (TabCase[ligne][colonne].recupererKitDeminages()==true){
+      return true;  
+    }  
+    return false;
     }
-*/
+
     int NbreBombAutour(){
         for (int i=0;i<20;i++){
             for (int j=0;j<20;j++){
-                
+                //TabCase[i][j].NbreBombAutour()++;
+              if (TabCase[i][j].presenceBomb()==true){
+                  int BombNumber=0;
+                  System.out.println(BombNumber++)   ;//A revoir car bombnumber pas sure
+              }  
             }
         }
-        
-        
     }
 }

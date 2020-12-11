@@ -12,5 +12,5 @@ package mega_demineur_kamenidoudie_delahaye;
 public class Partie {
     Joueur Joueur;
     Grille GrilleJeu= new Grille();
-    
+    //int NombreTtBomb;
 }

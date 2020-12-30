@@ -79,27 +79,32 @@ public class Grille {
             return true;
         }
         return false;
+        //return TabCase[ligne][colonne].placerDrapeau();
     }
+    
     Boolean placer_KitDeminages(int ligne, int colonne) {
         if (!TabCase[ligne][colonne].KitDeminages) {
             TabCase[ligne][colonne].KitDeminages = true;
             return true;
         }
         return false;
+        //return TabCase[ligne][colonne].placerKitDeminages();
     }
+    
     Boolean placer_Bomb(int ligne, int colonne) {
         if (!TabCase[ligne][colonne].Bomb) {
             TabCase[ligne][colonne].Bomb = true;
             return true;
         }
         return false;
+        //return TabCase[ligne][colonne].placerBomb();
     }
     
     boolean recupereKit(int ligne, int colonne){
         if (TabCase[ligne][colonne].recupererKitDeminages()==true){
             return true;  
         }  
-    return false;
+        return false;
     }
     
     /*
@@ -225,6 +230,29 @@ public class Grille {
         }
         return false;
         */
+    }
+    
+    void afficherGrilleSurConsole() {
+        // boucle inversée : on affiche d'abord la ligne du haut
+        for (int i = 5; i >= 0; i--) {
+            for (int j = 0; j < 7; j++) {
+                if (TabCase[i][j].Bomb) {
+                    System.out.print("BOMBE ");
+                } else if (TabCase[i][j].Drapeau) {
+                    System.out.print("DRAPEAU ");
+                } else if (TabCase[i][j].KitDeminages) {
+                    System.out.print("KIT/DEMINAGES ");
+                } else {
+                    //System.out.print(TabCase[i][j].jetonCourant);
+                    System.out.print(TabCase[i][j].BombNumber);
+                }
+            }
+            System.out.println(" " + (i + 1));
+        }
+        for (int i = 0; i < 7; i++) {
+            System.out.print(" " + (i + 1) + " ");
+        }
+        System.out.println();
     }
     
 }

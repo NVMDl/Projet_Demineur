@@ -15,7 +15,7 @@ public class Joueur {
     int NbreKitDeminages;
     int NbreDrapeau;
             
-     Joueur(String nom_joueur){
+    Joueur(String nom_joueur){
         Nom = nom_joueur;
         NbreKitDeminages = 0;
         NbreDrapeau = 0;
@@ -33,6 +33,7 @@ public class Joueur {
         NbreKitDeminages--;
         return true;
     }
+    
     boolean PerdreVie (){
         if(HP==0){
             return false;
@@ -40,6 +41,7 @@ public class Joueur {
         HP--;
         return true;
     }
+    
     boolean utiliserDrapeau(){
         if(NbreDrapeau==0){
             return false;

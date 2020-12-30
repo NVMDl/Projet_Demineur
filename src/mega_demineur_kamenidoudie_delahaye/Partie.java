@@ -16,65 +16,74 @@ public class Partie {
     Joueur Joueur;
     Grille GrilleJeu= new Grille();
     Joueur Listejoueurs[] = new Joueur[1];
-    //int NombreTtBomb;
+    int NombreTtBomb;//Nombre de bombes au total
+    
     
     void initialiserPartie() {
         Random r = new Random();
         //Mise en place de la grille
         GrilleJeu.viderGrille();
+        
+        //Initialisation du nombre total de bombes
+        NombreTtBomb = 40;
+        
+        //Identification du joueur
         Scanner sc = new Scanner(System.in);
-        System.out.println("Choix du pseudo du J1 :");
-        Joueur J1 = new Joueur(sc.nextLine());
-        Listejoueurs[0] = J1;
+        System.out.println("Entrez votre pseudo : ");
+        Joueur J = new Joueur(sc.nextLine());
+        Listejoueurs[0] = J;
+        System.out.println(J.Nom);
         
+        // On donne des drapeaux au joueur
+        J.NbreDrapeau = NombreTtBomb;
         
+        // On donne des Kits de Déminages au joueur
+        J.NbreKitDeminages = NombreTtBomb%3 + 1;
         
-        
-        
-        
-
-        System.out.println(J1.Nom);
-       
-
-        // On donne des jetons aux joueurs
-        for (int i = 0; i < 21; i++) {
-
-            Drapeau D = new Drapeau(Listejoueurs[0]);// faux car pas de classe drapeau je sais mais c'est pour avoir un model)
-
-            J1.ajouterDrapeau(D);
-
-            
-        }
-
-        // Determine qui est le premier joueur
-        
-
-        // Génération des 5 trous noirs et de 2 désintégrateurs sur les trou noirs
-        int compteur = 0;
-        for (int i = 0; i < 5; i++) {
-            int ligne_trou_noir = r.nextInt(20);
-            int colonne_trou_noir = r.nextInt(20);
-            if (compteur < 2) {
-                if (!GrilleJeu.placer_KitDeminages(ligne_trou_noir, colonne_trou_noir)) {
-                    compteur--;
-                }
-                compteur = compteur + 1;
-            }
-            if (!GrilleJeu.placer_Bomb(ligne_trou_noir, colonne_trou_noir)) {
-                i--;
+        // Génération aléatoire de bombes et de kit de déminages
+        // On place les bombes
+        Random nAlea = new Random();//r pour random
+        for (int nBomb = 1; nBomb <= 40; nBomb++) {
+            int iAlea = nAlea.nextInt(20);
+            int jAlea = nAlea.nextInt(20);
+            if (GrilleJeu.placer_Bomb(iAlea,jAlea) != true) {
+                nBomb--;
             }
         }
-
-        // On place les trois derniers désintégrateurs
-        for (int i = 0; i < 3; i++) {
-            int ligne_désin = r.nextInt(6);
-            int colonne_désin = r.nextInt(7);
-            if (!GrilleJeu.placer_KitDeminages(ligne_désin, colonne_désin) || GrilleJeu.TabCase[ligne_désin][colonne_désin].presenceBomb()) {
-                i--;
+        // On place les Kits de Déminages
+        for (int nKitDeminages = 1; nKitDeminages <= J.NbreKitDeminages; nKitDeminages++) {
+            int iAlea = nAlea.nextInt(20);
+            int jAlea = nAlea.nextInt(20);
+            if (GrilleJeu.TabCase[iAlea][jAlea].presenceBomb() == true || (GrilleJeu.TabCase[iAlea][jAlea].presenceBomb() != true && GrilleJeu.placer_KitDeminages(iAlea,jAlea) != true)) {
+                nKitDeminages--;
             }
         }
 
         GrilleJeu.afficherGrilleSurConsole();
-}
+    }
+    
+    int menu_joueur() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Jouez !");
+        System.out.println("1) Découvrir une case \n2) Placer un drapeau \n3) Récuperer un drapeau \n4) Utiliser un kit de déminages \n ");
+        int choix = sc.nextInt();
+        while (choix > 4 || choix < 1) {
+            System.out.println("Choix invalide, recommencez");
+            choix = sc.nextInt();
+        }
+        return choix;
+    }
+    
+    boolean recupereDrapeau() {
+        return true;
+    }
+    
+    boolean utiliseKit() {
+        return false;
+    }
+    
+    void debuterPartie() {
+        
+    }
  
 }

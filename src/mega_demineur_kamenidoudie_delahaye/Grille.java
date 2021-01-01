@@ -318,25 +318,27 @@ public class Grille {
     
     void afficherGrilleSurConsole() {
         // boucle inversée : on affiche d'abord la ligne du haut
-        for (int i = 19; i >= 0; i--) {
+        for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-                if (TabCase[i][j].Bomb == true) {
-                    System.out.print("B   ");
-                } else if (TabCase[i][j].Drapeau == true) {
-                    System.out.print("D   ");
-                } else if (TabCase[i][j].KitDeminages == true) {
-                    System.out.print("K   ");
+                if (TabCase[i][j].Drapeau == true) {
+                    System.out.print("D  ");
                 } else {
-                    System.out.print(TabCase[i][j].BombNumber+"   ");
+                    if (TabCase[i][j].Bomb == true) {
+                        System.out.print("B  ");
+                    } else if (TabCase[i][j].KitDeminages == true) {
+                        System.out.print("K  ");
+                    } else {
+                        System.out.print(TabCase[i][j].BombNumber+"  ");
+                    }
                 }
             }
-            System.out.println(" " + (i + 1));
+            System.out.println("  " + i);
         }
-        System.out.println("\n");
-        for (int i = 0; i < 20; i++) {
-            System.out.print(i + "   ");
+        System.out.print("\n");
+        for (int j = 0; j < 20; j++) {
+            System.out.print(j + "  ");
         }
-        System.out.println();
+        //System.out.println();
     }
     
 }

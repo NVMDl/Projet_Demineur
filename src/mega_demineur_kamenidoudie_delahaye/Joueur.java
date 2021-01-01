@@ -19,7 +19,7 @@ public class Joueur {
         Nom = nom_joueur;
         NbreKitDeminages = 0;
         NbreDrapeau = 0;
-        HP= 3;
+        HP = 3;
     }
      
     void obtenirKitDemi(){

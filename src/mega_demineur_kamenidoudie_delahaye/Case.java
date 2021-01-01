@@ -50,23 +50,29 @@ public class Case {
     }
     
     Boolean presenceBomb(){
-        return Bomb;
+        if (Bomb != true) {
+            return false;
+        }
+        return true;
     }
     
     Boolean activerBomb(){
-        if(Bomb){
-           
-            Bomb = false;
-            System.out.println("Une bombe a été activée");
-            return true;
+        if(presenceBomb() != true){
+            return false;
         }
-        return false;
+        Bomb = false;
+        System.out.println("Une bombe a été activée");
+        return true;
     }
     
     Boolean presenceKitDeminages(){
-        return KitDeminages;
+        if (KitDeminages == false) {
+            return false;
+        }
+        return true;
     }
     
+    /*
     Boolean recupererKitDeminages(){
         if(presenceKitDeminages()){
             KitDeminages = false;
@@ -74,10 +80,16 @@ public class Case {
         }
         return false;
     }
-       Boolean presenceDrapeau(){
-        return Drapeau;
+    */
+    
+    Boolean presenceDrapeau(){
+        if (Drapeau == false) {
+            return false;
+        }
+        return true;
     }
     
+    /*
     Boolean recupererDrapeau(){
         if(presenceDrapeau()){
             Drapeau = false;
@@ -85,6 +97,7 @@ public class Case {
         }
         return false;
     }
+    */
     
      Boolean activerKitDeminages(){
         if(KitDeminages){

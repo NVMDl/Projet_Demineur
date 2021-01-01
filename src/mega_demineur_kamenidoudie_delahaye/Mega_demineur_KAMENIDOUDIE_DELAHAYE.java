@@ -15,7 +15,7 @@ public class Mega_demineur_KAMENIDOUDIE_DELAHAYE {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Vous entrez dans le jeux Méga Démineur ! :\uD83D\uDE03");
+        System.out.println("Vous entrez dans le jeux Méga Démineur ! :\uD83D\uDE03 ");
         Partie J_partie = new Partie();
         J_partie.debuterPartie();
     }

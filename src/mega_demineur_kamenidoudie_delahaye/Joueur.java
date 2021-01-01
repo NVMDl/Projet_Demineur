@@ -22,7 +22,7 @@ public class Joueur {
         HP= 3;
     }
      
-     void obtenirKitDemi(){
+    void obtenirKitDemi(){
         NbreKitDeminages += 1;
     }
     
@@ -48,6 +48,10 @@ public class Joueur {
         }
         NbreDrapeau--;
         return true;
+    }
+    
+    void reprendreDrapeau() {
+        NbreDrapeau++;
     }
 }
 

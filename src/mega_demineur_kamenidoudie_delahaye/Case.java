@@ -25,7 +25,7 @@ public class Case {
     }
     
     Boolean placerDrapeau(){
-        if(Drapeau){
+        if(presenceDrapeau() == true){
             return false;
         }
         Drapeau = true;
@@ -34,7 +34,7 @@ public class Case {
 
 
     Boolean placerKitDeminages(){
-        if(KitDeminages){
+        if(presenceKitDeminages() == true){
             return false;
         }
         KitDeminages = true;
@@ -42,7 +42,7 @@ public class Case {
     }
     
     Boolean placerBomb(){
-        if(Bomb){
+        if(presenceBomb() == true){
             return false;
         }
         Bomb = true;
@@ -100,8 +100,7 @@ public class Case {
     */
     
      Boolean activerKitDeminages(){
-        if(KitDeminages){
-           
+        if(presenceKitDeminages() == true){
             KitDeminages = false;
             System.out.println("Un kit de déminages a été activé");
             return true;
@@ -110,11 +109,12 @@ public class Case {
     }
      
     int NbreBombAutour(){
-        if (!Bomb){
+        if (Bomb == false){
             return BombNumber;
         }
         return 0;
     }
-    
+
+   
      
 }
